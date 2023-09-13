@@ -1,0 +1,22 @@
+Circuit: *Amplifier simulation
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Tue Sep 12 15:09:30 2023
+Total elapsed time: 0.149 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 10557
+traniter = 10544
+tranpoints = 5023
+accept = 5023
+rejected = 0
+matrix size = 39
+fillins = 48
+solver = Normal
+Avg thread counts: 1.8/2.8/2.8/1.8
+Matrix Compiler1: 4.35 KB object code size  0.9/0.4/[0.2]
+Matrix Compiler2: 3.94 KB object code size  0.3/0.3/[0.2]
+

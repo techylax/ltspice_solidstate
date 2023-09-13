@@ -1,0 +1,36 @@
+*Amplifier simulation
+
+* Example of Amplifier Subcircuit instantiation and test
+* Filename: Amplifier_test.cir,  Subcircuit called: Amplifier,  Subcircuit Definition file: Amplifier.sub
+
+* Input Voltage source and resistance
+Vsig 1 0 SINE(0 1.19 10Hz 0 0 0)
+R1 1 2 100
+*r2 3 0 50000
+
+* Load Resistance
+Rload 3 0 50K
+
+* Subcircuit instantiation.  All subcircuits start with leading character X and then unique identifier.
+* Note:  The PINS must be in the correct order to match that of the subcircuit.
+* In this case 2 = VIN  3 = VOUT and 0 = VGND  which matches order in sub file .subckt command.
+Xamp 2 3 0 NLAmplifier
+
+* Include card tells Spice to pull named file into this deck
+.include NLAmplifier.sub
+
+
+
+
+* Transient Analysis
+.TRAN 1ms 5S 0 1ms ; Syntax: .TRAN Printstep StopTime PrintStartTime MaximumStepSize
+* You must declare Printstep and simulation stoptime.
+* Transient Analysis:  In transient analysis, Spice ignores the AC declaration and only uses the DC declaration
+* if no transient declaration exists.  To begin the simulation, Spice performs a bias point calculation time=0.
+
+*Usual Spice Simulation Commands
+*.dc Vsig -10 10 0.01
+.probe
+.end
+
+
